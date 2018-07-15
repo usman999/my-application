@@ -1,0 +1,137 @@
+package com.example.khizar.gymtrainer.Adapters;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.khizar.gymtrainer.DataProviders.Supplementsdataprovider;
+import com.example.khizar.gymtrainer.R;
+import com.example.khizar.gymtrainer.SingleWorkoutDetails;
+
+import java.util.ArrayList;
+
+
+public class AdapterBeginnersWorkoutDetails extends RecyclerView.Adapter<AdapterBeginnersWorkoutDetails.RecyclerViewHolder>  {
+    Context ctx;
+    ArrayList<Supplementsdataprovider> arrayList = new ArrayList<Supplementsdataprovider>();
+    RecyclerViewHolder recyclerViewHolder;
+
+    public AdapterBeginnersWorkoutDetails(ArrayList<Supplementsdataprovider> arrayList, Context ctx){
+
+        this.arrayList=arrayList;
+        this.ctx=ctx;
+
+    }
+
+    @Override
+    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.workoutslistsingleitem, parent, false);
+
+        recyclerViewHolder = new RecyclerViewHolder(view,ctx);
+        return recyclerViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+        Supplementsdataprovider dataprovider = arrayList.get(position);
+
+        holder.workoutName.setText(dataprovider.getHeader());
+        holder.workoutImage.setImageResource(dataprovider.getImages());
+
+
+
+
+
+
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return arrayList.size();
+    }
+
+
+
+    public static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        TextView workoutName;
+        ImageView workoutImage;
+        Context ctx;
+        private RecyclerView recyclerViewHolder;
+
+        @SuppressLint("NewApi")
+        public RecyclerViewHolder(View view,Context ctx) {
+            super(view);
+            view.setOnClickListener(this);
+            this.ctx=ctx;
+            workoutName=(TextView) view.findViewById(R.id.tvworkoutname);
+            workoutImage=(ImageView) view.findViewById(R.id.ivworkoutimage);
+
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position=getAdapterPosition();
+
+
+
+            // Beginners workouts
+            if(workoutName.getText().equals("Bench Press")) {
+                Intent n = new Intent(ctx, SingleWorkoutDetails.class);
+                n.putExtra("workoutName", "Bench Presses");
+                n.putExtra("workoutDescription", "Bwnch Presses is the first set on chest for beginners");
+                n.putExtra("set1Repitations", "12");
+                n.putExtra("set2Repitations", "10");
+                n.putExtra("set3Repitations", "8");
+                n.putExtra("workoutVideo", R.raw.chest1);
+                ctx.startActivity(n);
+
+
+            }
+            else if(workoutName.getText().equals("Incline Press")){
+                Intent n = new Intent(ctx, SingleWorkoutDetails.class);
+                n.putExtra("workoutName", "Incline Press");
+                n.putExtra("workoutDescription", "Incline Press is the first set on chest for beginners");
+                n.putExtra("set1Repitations", "12");
+                n.putExtra("set2Repitations", "10");
+                n.putExtra("set3Repitations", "8");
+                n.putExtra("workoutVideo", R.raw.chest2);
+                ctx.startActivity(n);
+
+            }
+
+            else if(workoutName.getText().equals("Dumbbell Press")){
+                Intent n = new Intent(ctx, SingleWorkoutDetails.class);
+                n.putExtra("workoutName", "Dumbbell Press");
+                n.putExtra("workoutDescription", "Dumbbell Press is the first set on chest for beginners");
+                n.putExtra("set1Repitations", "12");
+                n.putExtra("set2Repitations", "10");
+                n.putExtra("set3Repitations", "8");
+                n.putExtra("workoutVideo", R.raw.chest3);
+                ctx.startActivity(n);
+
+            }
+
+            else if(workoutName.getText().equals("Parallel Bar Dips")){
+                Intent n = new Intent(ctx, SingleWorkoutDetails.class);
+                n.putExtra("workoutName", "Parallel Bar Dips");
+                n.putExtra("workoutDescription", "Parallel Bar Dips is the first set on chest for beginners");
+                n.putExtra("set1Repitations", "12");
+                n.putExtra("set2Repitations", "10");
+                n.putExtra("set3Repitations", "8");
+                n.putExtra("workoutVideo", R.raw.chest4);
+                ctx.startActivity(n);
+
+            }
+
+            else if(workoutName.getText().equals("Cable Crossover Flys")){
+ 

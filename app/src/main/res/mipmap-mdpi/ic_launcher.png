@@ -1,0 +1,39 @@
+<application>
+  <component name="ActionsCollector">
+    <counts>
+      <entry action="$Copy" count="30" />
+      <entry action="$Cut" count="4" />
+      <entry action="$Delete" count="75" />
+      <entry action="$Paste" count="1194" />
+      <entry action="$Undo" count="1756" />
+      <entry action="About" count="1" />
+      <entry action="Add  return  statement" count="1" />
+      <entry action="Add Annotation" count="2" />
+      <entry action="Add Single-Member Static Import" count="5" />
+      <entry action="Add TypeCast" count="2" />
+      <entry action="Add constructor parameters" count="1" />
+      <entry action="Add exception to catch clause" count="2" />
+      <entry action="Add method qualifier" count="1" />
+      <entry action="Add missing new expression" count="2" />
+      <entry action="Android Lint Quick Fixes" count="15" />
+      <entry action="Android.CreateResourceDirectory" count="6" />
+      <entry action="Android.CreateSampleDataDirectory" count="2" />
+      <entry action="Android.GenerateSignedApk" count="7" />
+      <entry action="Android.RunAndroidAvdManager" count="1" />
+      <entry action="Android.RunAndroidSdkManager" count="5" />
+      <entry action="Android.SyncProject" count="31" />
+      <entry action="AndroidConnectDebuggerAction" count="28" />
+      <entry action="Back" count="12" />
+      <entry action="Change Parameter Class" count="2" />
+      <entry action="Change method signature from usage" count="7" />
+      <entry action="CheckForUpdate" count="2" />
+      <entry action="ChooseDebugConfiguration" count="7" />
+      <entry action="ChooseRunConfiguration" count="7" />
+      <entry action="CleanGradleProject" count="1" />
+      <entry action="CodeCompletion" count="37" />
+      <entry action="CommentByBlockComment" count="75" />
+      <entry action="Create Class from Usage" count="5" />
+      <entry action="Create Constructor from New" count="1" />
+      <entry action="Create Local from Usage" count="1" />
+      <entry action="Create constructor matching super" count="2" />
+      <entry action="Create field from Usage" coun
