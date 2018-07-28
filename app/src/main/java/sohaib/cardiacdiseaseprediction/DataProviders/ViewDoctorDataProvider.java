@@ -9,6 +9,9 @@ public class ViewDoctorDataProvider {
     String doctorPhone;
     String doctorEmail;
 
+    public ViewDoctorDataProvider() {
+    }
+
     public ViewDoctorDataProvider(String doctorName, String doctorSpeciality, String doctorGender, String doctorResidence, String doctorPhone, String doctorEmail) {
         this.doctorName = doctorName;
         this.doctorSpeciality = doctorSpeciality;

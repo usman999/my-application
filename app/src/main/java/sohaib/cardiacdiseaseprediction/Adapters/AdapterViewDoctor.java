@@ -50,12 +50,12 @@ public class AdapterViewDoctor extends RecyclerView.Adapter<AdapterViewDoctor.Re
        /* holder.workoutName.setText(dataprovider.getWorkoutName());
         holder.workoutImage.setImageResource(dataprovider.getWorkoutImage());*/
 
-        holder.doctorName.setText(dataprovider.getDoctorName());
+        holder.doctorName.setText("Dr. "+dataprovider.getDoctorName());
         holder.doctorResidence.setText(dataprovider.getDoctorResidence());
         holder.doctorEmail.setText(dataprovider.getDoctorEmail());
         holder.doctorPhone.setText(dataprovider.getDoctorPhone());
         holder.doctorGender.setText(dataprovider.getDoctorGender());
-        holder.doctorSpeciality.setText(dataprovider.getDoctorSpeciality());
+        holder.doctorSpeciality.setText(dataprovider.getDoctorSpeciality()+" Specialist");
 
 
 

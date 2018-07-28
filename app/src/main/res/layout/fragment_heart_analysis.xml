@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +9,68 @@
     >
 
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="15dp"
+        android:fitsSystemWindows="true"
+
         >
+
+        <!-- Gender -->
+        <RadioGroup
+                android:id="@+id/radioGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <RadioButton
+                    android:id="@+id/radioMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Male"
+                    android:checked="true" />
+            <RadioButton
+                    android:id="@+id/radioFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Female" />
+
+            </RadioGroup>
+
+
+
+        <!-- Name Edit Text -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Name" />
+        </android.support.design.widget.TextInputLayout>
+
 
         <!-- Age Edit Text -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/etAge"
                 android:layout_width="match_parent"
@@ -28,19 +79,7 @@
                 android:hint="Age" />
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Chest Pain  -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etChestPain"
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:hint="Chest Pain" />
-        </android.support.design.widget.TextInputLayout>
 
         <!-- Resting Blood Pressure -->
         <android.support.design.widget.TextInputLayout
@@ -65,7 +104,7 @@
             <EditText android:id="@+id/etSerumCholestrol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textShortMessage"
+                android:inputType="number"
                 android:hint="Serum Cholestrol" />
         </android.support.design.widget.TextInputLayout>
 
@@ -79,24 +118,12 @@
             <EditText android:id="@+id/etFastingBloodSugar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textShortMessage"
+                android:inputType="number"
                 android:hint="Fasting Blood Sugar" />
         </android.support.design.widget.TextInputLayout>
 
 
 
-        <!-- Resting Electrocardiographic Results -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etRestingElectrocardiographicResults"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Resting Electrocardiographic Results"/>
-        </android.support.design.widget.TextInputLayout>
 
         <!--Maximum Heart Rate Achieved -->
         <android.support.design.widget.TextInputLayout
@@ -107,22 +134,11 @@
             <EditText android:id="@+id/etMaximumHeartRateAchieved"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:hint="Maximum Heart Rate Achieved"/>
         </android.support.design.widget.TextInputLayout>
 
-        <!--Exercise Induced Angina -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etExerciseInducedAngina"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Exercise Induced Angina"/>
-        </android.support.design.widget.TextInputLayout>
+
 
 
         <!--ST Depression Induced By Exercise Relative To Rest  -->
@@ -134,10 +150,57 @@
             <EditText android:id="@+id/etSTDepressionInduced"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:hint="ST Depression Induced By Exercise Relative To Rest"/>
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Chest Pain  -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="8dp">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:entries="@array/chestPain_types"
+                android:id="@+id/spinnerChestPain"
+
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- Resting Electrocardiographic Results -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:entries="@array/Resting_ECC_types"
+                android:id="@+id/spinnerRestingECC"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--Exercise Induced Angina -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:entries="@array/Exercise_induced_values"
+                android:id="@+id/spinnerExerciseInduced"
+
+                />
+        </android.support.design.widget.TextInputLayout>
 
         <!--Slope of Peak Exercise ST Segment-->
         <android.support.design.widget.TextInputLayout
@@ -145,11 +208,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etSlopeofPeakExercise"
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Slope of Peak Exercise ST Segment"/>
+                android:layout_height="50dp"
+                android:entries="@array/slope_peak_values"
+                android:id="@+id/spinnerSlopPeak"
+
+                />
         </android.support.design.widget.TextInputLayout>
 
         <!--Number Of MAjor Vessels-->
@@ -158,11 +223,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etNumberOfMAjorVessels"
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Number Of MAjor Vessels"/>
+                android:layout_height="50dp"
+                android:entries="@array/major_Vessels_values"
+                android:id="@+id/spinnerMajorVessels"
+
+                />
         </android.support.design.widget.TextInputLayout>
 
         <!--Number Of Defects-->
@@ -171,30 +238,29 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etNumberOfDefects"
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Number Of Defects"/>
+                android:layout_height="50dp"
+                android:entries="@array/number_of_defects"
+                android:id="@+id/spinnerNumber_Of_Defects"
+
+                />
         </android.support.design.widget.TextInputLayout>
 
 
         <!-- Submit Button -->
-        <android.support.v7.widget.AppCompatButton
+        <Button
             android:id="@+id/btn_SubmitHeartAnalysis"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginTop="10dp"
             android:text="Submit"
             android:backgroundTint="@color/colorPrimary"
             android:textColor="#fff"
+            android:layout_marginBottom="20dp"
             />
-
-
-
-
     </LinearLayout>
 
 
-</ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>

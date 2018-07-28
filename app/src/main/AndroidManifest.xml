@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sohaib.cardiacdiseaseprediction">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,11 +22,9 @@
         <!-- Starting Activity -->
         <activity
             android:name=".Activities.LoginActivity"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/cardiacicon"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-
-            >
+            android:roundIcon="@mipmap/ic_launcher_round">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,9 +35,13 @@
             android:name=".Activities.CreateAccountActivity"
             android:label="Create Account"
             android:parentActivityName=".Activities.LoginActivity" />
-        <activity android:name=".Activities.HeartAnalysisResult"
+        <activity
+            android:name=".Activities.HeartAnalysisResult"
             android:label="Heart Analysis Result"
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity android:name=".Activities.SinglePersonReports"
             android:parentActivityName=".Activities.MainActivity"
+
             ></activity>
     </application>
 

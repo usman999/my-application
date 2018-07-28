@@ -4,6 +4,495 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.HeartAnalysisResult">
+    tools:context=".Activities.HeartAnalysisResult"
 
+    android:background="#fff"
+    android:fitsSystemWindows="true"
+
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:fitsSystemWindows="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/resultLayout"
+            android:background="#fff"
+
+
+            >
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:fitsSystemWindows="true"
+            android:stretchColumns="*"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <!--First Row-->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="junaid"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/tvPatientName"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+            </TableRow>
+
+            <!--2nd row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:layout_column="0"
+                    android:padding="@dimen/table_padding"
+                    android:background="@drawable/border"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="male"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/tvPatientGender"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+
+            </TableRow>
+
+            <!--3rd row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Age"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="male"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/tvPatientAge"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--4th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:text="Resting Blood Pressure"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientRstBP"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="160 mm HG"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+
+                    />
+            </TableRow>
+
+            <!--5th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:text="Serum Cholestrol"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientCholestrol"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="160 mg/dl"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+
+                    />
+            </TableRow>
+
+            <!--6th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fasting Blood Sugar"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientFastBP"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="160 mg/dl"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--7th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Maximum Heart Rate"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientMaxHeartRate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="160 beats/min"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--8th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ST Depression Induced"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientSTIndunced"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="160 beats/min"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--9th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chest Pain"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientChestPain"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Normal"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+
+
+
+
+        <!--10th row-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resting Electrcardiographic "
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:background="@drawable/border"
+                android:padding="@dimen/table_padding"
+                />
+
+            <TextView
+                android:id="@+id/tvPatientRestingECC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Normal"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:background="@drawable/border"
+                android:padding="@dimen/table_padding"
+                />
+        </TableRow>
+
+            <!--11th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Exercise Induced Angina"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientInducedAngina"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="yes"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--12th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Slope OF Peak"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientSlopeOfPeak"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="yes"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--12th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Number Of Major Vessels"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientMajorVessels"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="yes"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--13th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Number Of Defects"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPatientNumberOFDefects"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="yes"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+            </TableRow>
+
+            <!--14th row-->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Result Is: "
+                    android:textAlignment="center"
+                    android:textSize="30dp"
+                    android:background="@drawable/border"
+                    android:padding="@dimen/table_padding"
+                    />
+
+
+            </TableRow>
+
+        </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

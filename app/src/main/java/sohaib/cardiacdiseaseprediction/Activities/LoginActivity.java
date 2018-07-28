@@ -14,9 +14,10 @@ import sohaib.cardiacdiseaseprediction.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btnLogin;
-    TextView tvCreateAccount;
-    EditText etEnterPass;
+    private Button btnLogin;
+    private TextView tvCreateAccount;
+    private EditText etEnterPass,etEnterEmail;
+    private String LoginEmail,LoginPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +27,35 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin=(Button) findViewById(R.id.btnLogin);
         tvCreateAccount=(TextView) findViewById(R.id.tvCreateAccount);
         etEnterPass=(EditText) findViewById(R.id.etLoginPassword);
+        etEnterEmail=(EditText) findViewById(R.id.etLoginEmailAdress);
 
-        etEnterPass.setOnTouchListener(new View.OnTouchListener() {
+        etEnterEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_LEFT = 0;
-                final int DRAWABLE_TOP = 1;
-                final int DRAWABLE_RIGHT = 2;
-                final int DRAWABLE_BOTTOM = 3;
+            public void onFocusChange(View view, boolean b) {
 
-                if(event.getRawX() <= (etEnterPass.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width()))
-                {
-                    // your action here
-                    Toast.makeText(LoginActivity.this,"helo",Toast.LENGTH_SHORT).show();
-                    return true;
+                if(!etEnterEmail.getText().toString().matches("[a-zA-Z0-9_-]+@[a-z]+.+[.a-z]") ){
+                    etEnterEmail.setError("invalid email adress");
                 }
+                else {
+                    LoginEmail=etEnterEmail.getText().toString();
 
-        return false;
-        }
-    });
+                }
+            }
+        });
+
+        etEnterPass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+
+                if(etEnterPass.getText().toString().equals("")){
+                    etEnterPass.setError("Please Enter Value");
+                }
+                else {
+                    LoginPass=etEnterPass.getText().toString();
+
+                }
+            }
+        });
 
 
 
@@ -53,8 +64,15 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                if(!etEnterPass.getText().toString().equals("") && !etEnterPass.getText().toString().equals("")){
+                    Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(LoginActivity.this,"Please Enter Values First",Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
         tvCreateAccount.setOnClickListener(new View.OnClickListener() {

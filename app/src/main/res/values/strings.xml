@@ -17,6 +17,56 @@
         <item>Daska</item>
     </string-array>
 
+    <string-array name="chestPain_types">
+        <item>Chest Pain</item>
+        <item>Typical Angina</item>
+        <item>Atypical Angina</item>
+        <item>Non-Anginal</item>
+        <item>Asymptomatic</item>
+
+    </string-array>
+
+    <string-array name="Resting_ECC_types">
+        <item>Resting Electrocardiographic</item>
+        <item>Normal</item>
+        <item>Elevating</item>
+        <item>Ventricular</item>
+        <item>Ventricular Hypertrophy</item>
+
+    </string-array>
+
+
+    <string-array name="Exercise_induced_values">
+        <item>Exercise Induced Angina</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+
+    <string-array name="slope_peak_values">
+        <item>Slope of Peak Exercise ST Segment</item>
+        <item>Upsloping</item>
+        <item>Flat</item>
+        <item>Downsloping</item>
+    </string-array>
+
+
+    <string-array name="major_Vessels_values">
+        <item>Number Of Major Vessels</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="number_of_defects">
+        <item>No. of Defects</item>
+        <item>Normal</item>
+        <item>Fixed Defects</item>
+        <item>Reverable Defects</item>
+    </string-array>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
