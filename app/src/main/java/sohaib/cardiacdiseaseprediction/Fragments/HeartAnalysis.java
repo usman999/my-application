@@ -2,8 +2,6 @@ package sohaib.cardiacdiseaseprediction.Fragments;
 
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,10 +13,19 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import sohaib.cardiacdiseaseprediction.Activities.HeartAnalysisResult;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import sohaib.cardiacdiseaseprediction.DataProviders.StaticData;
+import sohaib.cardiacdiseaseprediction.DataProviders.User;
 import sohaib.cardiacdiseaseprediction.R;
 
 
@@ -27,12 +34,16 @@ public class HeartAnalysis extends Fragment {
     Spinner spinnerChestPain,spinnerRestingECC,spinnerIndicedAmgina,spinnersLopeOfPeak,spinnerNumberOfMajorVessels,spinnerNumberOfDefects;
     private EditText etName,etAge,etRst_bloodPressure,etSerumChlestrol, etFst_bloodSugar,etMax_heartRate,etSt_depressionInduced;
     private String chestPainValue,restingECCValue,indicedAmginaValue,slopeOfPeakValue,numberOfMajorVesselsValue,numberOfDefectsValue;
+    private int chestPainInt,restingECCInt,indicedAmginaInt,slopeOfPeakInt,numberOfMajorVesselsInt,numberOfDefectsInt;
     private int age,rst_bloodPressure,serumChlestrol, fst_bloodSugar,max_heartRate,st_depressionInduced;
     private RadioGroup radioGender;
     private String genderValue;
+    private int genderValueInt;
     private String Name;
-
-
+    private String Result;
+    private String url= StaticData.BASE_URL+"/api/Heart";
+    private User user;
+    private int fst_bloodSugarInt;
 
     public HeartAnalysis() {
 
@@ -76,6 +87,7 @@ public class HeartAnalysis extends Fragment {
                 /*Toast.makeText(getActivity(), genderValue, Toast.LENGTH_SHORT).show();*/
             }
         });
+
 
 
         etName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -195,6 +207,12 @@ public class HeartAnalysis extends Fragment {
             }
         });
 
+        if(!etSt_depressionInduced.getText().toString().isEmpty()){
+            st_depressionInduced = Integer.parseInt(etSt_depressionInduced.getText().toString());
+        }
+
+
+
 
 
 
@@ -209,11 +227,13 @@ public class HeartAnalysis extends Fragment {
 
                 if(position==0){
                     /*Toast.makeText(getActivity(),"Not Selectable",Toast.LENGTH_SHORT).show();*/
-
+                    chestPainValue="";
                 }
                 else {
-                    spinnerChestPain.setBackgroundColor(Color.rgb(226,74,74));
+
+                    spinnerChestPain.setBackgroundResource(R.color.colorAccent);
                     chestPainValue= String.valueOf(adapterView.getItemAtPosition(position));
+                    chestPainInt= (int) adapterView.getItemIdAtPosition(position);
                     /*Toast.makeText(getActivity(),""+chestPainValue,Toast.LENGTH_SHORT).show();*/
 
                 }
@@ -233,11 +253,13 @@ public class HeartAnalysis extends Fragment {
 
                 if(position==0){
                     /*Toast.makeText(getActivity(),"Not Selectable",Toast.LENGTH_SHORT).show();*/
-
+                    restingECCValue="";
                 }
                 else {
-                    spinnerRestingECC.setBackgroundColor(Color.rgb(226,74,74));
+                    spinnerRestingECC.setBackgroundResource(R.color.colorAccent);
                     restingECCValue= String.valueOf(adapterView.getItemAtPosition(position));
+                    restingECCInt= (int) adapterView.getItemIdAtPosition(position);
+
                     /*Toast.makeText(getActivity(),""+restingECCValue,Toast.LENGTH_SHORT).show();*/
 
                 }
@@ -255,12 +277,14 @@ public class HeartAnalysis extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
                 if(position==0){
+                    indicedAmginaValue="";
                     /*Toast.makeText(getActivity(),"Not Selectable",Toast.LENGTH_SHORT).show();
 */
                 }
                 else {
-                    spinnerIndicedAmgina.setBackgroundColor(Color.rgb(226,74,74));
+                    spinnerIndicedAmgina.setBackgroundResource(R.color.colorAccent);
                     indicedAmginaValue= String.valueOf(adapterView.getItemAtPosition(position));
+                    indicedAmginaInt= (int) adapterView.getItemIdAtPosition(position);
                     /*Toast.makeText(getActivity(),""+indicedAmginaValue,Toast.LENGTH_SHORT).show();*/
 
                 }
@@ -279,11 +303,14 @@ public class HeartAnalysis extends Fragment {
 
                 if(position==0){
                     /*Toast.makeText(getActivity(),"Not Selectable",Toast.LENGTH_SHORT).show();*/
+                    slopeOfPeakValue="";
 
                 }
                 else {
-                    spinnersLopeOfPeak.setBackgroundColor(Color.rgb(226,74,74));
+                    spinnersLopeOfPeak.setBackgroundResource(R.color.colorAccent);
                     slopeOfPeakValue= String.valueOf(adapterView.getItemAtPosition(position));
+                    slopeOfPeakInt= (int) adapterView.getItemIdAtPosition(position);
+
                     /*Toast.makeText(getActivity(),""+slopeOfPeakValue,Toast.LENGTH_SHORT).show();*/
 
                 }
@@ -301,12 +328,13 @@ public class HeartAnalysis extends Fragment {
 
                 if(position==0){
                     /*Toast.makeText(getActivity(),"Not Selectable",Toast.LENGTH_SHORT).show();*/
-
+                    numberOfMajorVesselsValue="";
 
                 }
                 else {
-                    spinnerNumberOfMajorVessels.setBackgroundColor(Color.rgb(226,74,74));
+                    spinnerNumberOfMajorVessels.setBackgroundResource(R.color.colorAccent);
                     numberOfMajorVesselsValue= String.valueOf(adapterView.getItemAtPosition(position));
+                    numberOfMajorVesselsInt= (int) adapterView.getItemIdAtPosition(position);
                     /*Toast.makeText(getActivity(),""+numberOfMajorVesselsValue,Toast.LENGTH_SHORT).show();*/
 
                 }
@@ -326,11 +354,12 @@ public class HeartAnalysis extends Fragment {
 
                 if(position==0){
                     /*Toast.makeText(getActivity(),"Not Selectable",Toast.LENGTH_SHORT).show();*/
-
+                    numberOfDefectsValue="";
                 }
                 else {
-                    spinnerNumberOfDefects.setBackgroundColor(Color.rgb(226,74,74));
+                    spinnerNumberOfDefects.setBackgroundResource(R.color.colorAccent);
                     numberOfDefectsValue= String.valueOf(adapterView.getItemAtPosition(position));
+                    numberOfMajorVesselsInt= (int) adapterView.getItemIdAtPosition(position);
                    /* Toast.makeText(getActivity(),""+numberOfDefectsValue,Toast.LENGTH_SHORT).show();*/
 
                 }
@@ -351,9 +380,28 @@ public class HeartAnalysis extends Fragment {
             public void onClick(View view) {
 
 
-                if (!etAge.getText().toString().isEmpty() && !etName.getText().toString().isEmpty() && !etRst_bloodPressure.getText().toString().isEmpty() && !etSerumChlestrol.getText().toString().isEmpty() && !etFst_bloodSugar.getText().toString().isEmpty() && !etMax_heartRate.getText().toString().isEmpty() && !etSt_depressionInduced.getText().toString().isEmpty()) {
+                if (!etAge.getText().toString().isEmpty() && !etName.getText().toString().isEmpty() && !etRst_bloodPressure.getText().toString().isEmpty() && !etSerumChlestrol.getText().toString().isEmpty() && !etFst_bloodSugar.getText().toString().isEmpty() && !etMax_heartRate.getText().toString().isEmpty() && !etSt_depressionInduced.getText().toString().isEmpty() && !chestPainValue.equals("") && !restingECCValue.equals("") && !indicedAmginaValue.equals("")  && !slopeOfPeakValue.equals("") && !numberOfMajorVesselsValue.equals("") && !numberOfDefectsValue.equals("") ) {
 
-                    Intent intent = new Intent(getActivity(), HeartAnalysisResult.class);
+                    if(genderValue.equals("male")){
+                        genderValueInt=1;
+                    }else if(genderValue.equals("female")){
+                        genderValueInt=0;
+                    }
+
+                    if(fst_bloodSugar<120){
+                        fst_bloodSugarInt=0;
+                    }
+                    else {
+                        fst_bloodSugarInt=1;
+                    }
+
+                    diseasePrediction();
+
+
+
+                    /*HeartResultSubmit();*/
+
+                   /* Intent intent = new Intent(getActivity(), HeartAnalysisResult.class);
                     intent.putExtra("patientGender",genderValue);
                     intent.putExtra("patientName",Name);
                     intent.putExtra("patientAge",age);
@@ -368,11 +416,12 @@ public class HeartAnalysis extends Fragment {
                     intent.putExtra("slopeOfPeak",slopeOfPeakValue);
                     intent.putExtra("majorVessels",numberOfMajorVesselsValue);
                     intent.putExtra("defects",numberOfDefectsValue);
-                    startActivity(intent);
+                    startActivity(intent);*/
 
                 }
+
                 else {
-                    Toast.makeText(getActivity(),"Fill The Filed First",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"fill and select all Fileds",Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -386,4 +435,59 @@ public class HeartAnalysis extends Fragment {
 
     }
 
+    private void diseasePrediction() {
+
+
+    }
+
+    private void HeartResultSubmit() {
+
+
+        JSONObject object = new JSONObject();
+        try{
+            object.put("id",1);
+            object.put("User_Name",user.getFirstName());
+            object.put("Email",user.getEmail());
+            object.put("Location",user.getLocation());
+            object.put("age",age);
+            object.put("gender",genderValue);
+            object.put("chest_pain",chestPainValue);
+            object.put("sugar",fst_bloodSugar);
+            object.put("rest_ecg",restingECCValue);
+            object.put("exang",age);
+            object.put("slope",slopeOfPeakValue);
+            object.put("ca",numberOfMajorVesselsValue);
+            object.put("thal",numberOfDefectsValue);
+            object.put("bp",rst_bloodPressure);
+            object.put("cholestrol",serumChlestrol);
+            object.put("thalach",max_heartRate);
+            object.put("old_peak",st_depressionInduced);
+            object.put("Result","Heart");
+
+        }catch (Exception e){
+
+        }
+
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                Toast.makeText(getActivity(),response.toString(),Toast.LENGTH_LONG).show();
+
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getActivity(),error.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        queue.add(request);
+    }
 }
+
+

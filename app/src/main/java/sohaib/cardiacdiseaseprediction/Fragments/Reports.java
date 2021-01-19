@@ -42,8 +42,10 @@ public class Reports extends Fragment {
         filesListView = (ListView) view.findViewById(R.id.lv_reports);
 
         File root = new File("/sdcard/Cardic Result/");
+        if(root.exists()){
+            listDir(root);
+        }
 
-        listDir(root);
 
 
         filesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,7 +73,11 @@ public class Reports extends Fragment {
 
 
             ArrayAdapter<String> diresctoryList = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, filelist);
+
+        if(!diresctoryList.isEmpty()){
             filesListView.setAdapter(diresctoryList);
+        }
+
 
         }
 

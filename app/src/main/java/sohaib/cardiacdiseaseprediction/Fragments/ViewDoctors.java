@@ -31,12 +31,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sohaib.cardiacdiseaseprediction.Adapters.AdapterViewDoctor;
+import sohaib.cardiacdiseaseprediction.DataProviders.StaticData;
 import sohaib.cardiacdiseaseprediction.DataProviders.ViewDoctorDataProvider;
 import sohaib.cardiacdiseaseprediction.R;
 
 public class ViewDoctors extends Fragment {
 
-    private String serverName="http://ad58d1e6.ngrok.io";
+    private String serverName= StaticData.BASE_URL;
     private String JsonUrl=""+serverName+"/api/Doctor?type=json";
     private JsonArrayRequest request;
     private RequestQueue requestQueue;

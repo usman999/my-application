@@ -33,7 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="First Name" />
+            android:hint="First Name"
+            android:imeOptions="flagNoExtractUi"
+            />
     </android.support.design.widget.TextInputLayout>
 
     <!-- Last Name Label -->
@@ -47,7 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords"
-            android:hint="Last Name" />
+            android:hint="Last Name"
+            android:imeOptions="flagNoExtractUi"
+            />
     </android.support.design.widget.TextInputLayout>
 
     <!-- Email Label -->
@@ -60,36 +64,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:hint="Email"
+            android:imeOptions="flagNoExtractUi"
+            />
     </android.support.design.widget.TextInputLayout>
 
 
-        <!-- Phone Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/etPhoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="Phone Number" />
-        </android.support.design.widget.TextInputLayout>
 
 
-        <!-- City Label -->
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="6dp"
-            android:entries="@array/city_names"
 
-            >
-
-
-        </Spinner>
 
     <!-- Password Label -->
     <android.support.design.widget.TextInputLayout
@@ -103,7 +86,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password"/>
+            android:hint="Password"
+            android:imeOptions="flagNoExtractUi"/>
     </android.support.design.widget.TextInputLayout>
 
         <!--Confirm Password Label -->
@@ -118,8 +102,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Confirm Password"/>
+                android:hint="Confirm Password"
+                android:imeOptions="flagNoExtractUi"
+                />
         </android.support.design.widget.TextInputLayout>
+
+        <!-- Phone Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Phone Number"
+                android:imeOptions="flagNoExtractUi"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- City Label -->
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="6dp"
+            android:entries="@array/city_names"
+            android:id="@+id/spinnerSelectCity"
+
+            >
+
+
+        </Spinner>
 
     <!-- Signup Button -->
     <android.support.v7.widget.AppCompatButton
